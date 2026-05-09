@@ -59,7 +59,8 @@ header {
 }
 
 main {
-    margin: 400px auto;
+    margin: 30px auto;
+    width: min(95%, 1200px);
     max-width: 1200px;
     background-color: #472e6b70;
     border-radius: 10px;
