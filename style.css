@@ -1,112 +1,333 @@
-:root {
-    --background-body: #0A0F0D;
-    --destaque: #472E6B;
-    --ancora: #B288DE;
-}
+ *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
+        /* 
+           variáveis 
+           Facilita mudar cores depois.
+           */
 
-body{
-    background-color: var(--background-body);
-    color: azure;
-    font-family: Arial, Helvetica, sans-serif;
-}
+        :root{
+            --background: #09090f;
+            --card: #141421;
+            --card2: #1c1c2b;
+            --purple: #8b5cf6;
+            --purple-light: #b794ff;
+            --text: #f1f5f9;
+            --gray: #94a3b8;
+            --success: #22c55e;
+        }
 
-h2 {
-    color: #B288DE;
-}
+     
 
-h3{
-    background-color: #b288de32;
-    border-radius: 50px 50px 10px 10px;
-    margin-top: 30px;
-    color: azure;
-}
+        body{
+            background: linear-gradient(to bottom, #09090f, #12121b);
+            color: var(--text);
 
-.logo {
-    width: 100px;
-    height: 100px;
-    border-radius: 100%;
-    border: 2px solid var(--ancora);
-}
+            font-family: "Inter", sans-serif;
 
-a {
-    color: var(--ancora);
-    text-decoration: none;  
-}
+            min-height: 100vh;
 
-a:hover{
-    color: aliceblue;
-    
-}
+            padding: 20px;
+        }
 
-header {
-    background-color: var(--destaque);
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding: 20px;
-    margin: 10px;
-    border-radius: 10px;
-    /* nao deixa o elemnto sair do elemnto pai */
-    overflow: hidden;
+        /* para centralizar os negócios */
+
+        .container{
+            max-width: 1200px;
+            margin: auto;
+        }
+
+       
+
+        header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            background: rgba(20,20,33,0.9);
+
+            padding: 20px;
+
+            border-radius: 20px;
+
+            border: 1px solid rgba(255,255,255,0.05);
+
+            margin-bottom: 25px;
+        }
+
+        
+
+        .logo{
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-circle{
+            width: 60px;
+            height: 60px;
+
+            border-radius: 50%;
+
+            background: linear-gradient(135deg, var(--purple), #4c1d95);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-family: "Orbitron", sans-serif;
+            font-weight: bold;
+        }
+
+        .logo h1{
+            font-family: "Orbitron", sans-serif;
+            font-size: 1.2rem;
+        }
+
+        
+
+        nav ul{
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a{
+            text-decoration: none;
+            color: var(--gray);
+
+            transition: 0.3s;
+        }
+
+        nav a:hover{
+            color: white;
+        }
+
+        /* deixa os negócios em coluna*/
+
+        .dashboard{
+            display: grid;
+
+            grid-template-columns: 300px 1fr;
+
+            gap: 20px;
+        }
+
+        /* para responsividade*/
+
+        @media(max-width: 900px){
+
+            .dashboard{
+                grid-template-columns: 1fr;
+            }
+
+            header{
+                flex-direction: column;
+                gap: 20px;
+            }
+
+        }
+
+      
+
+        .sidebar{
+            background: var(--card);
+
+            padding: 25px;
+
+            border-radius: 20px;
+        }
+
+        /* avatar */
+
+        .avatar{
+            width: 120px;
+            height: 120px;
+
+            border-radius: 50%;
+
+            margin: auto;
+
+            background: linear-gradient(135deg, var(--purple), #312e81);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 2rem;
+
+            box-shadow: 0 0 30px rgba(139,92,246,0.4);
+        }
+
+        /* menu*/
+
+        .profile{
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .rank{
+            color: var(--purple-light);
+            margin-top: 8px;
+        }
+     /* xp barra*/
+
+        .xp-container{
+            margin-top: 25px;
+        }
+
+    .xp-top{
+            display: flex;
+            justify-content: space-between;
+
+            margin-bottom: 10px;
+        }
+
+        .xp-bar{
+            width: 100%;
+            height: 15px;
+
+            background: #222;
+
+            border-radius: 50px;
+
+            overflow: hidden;
+        }
+
+        .xp-fill{
+            width: 72%;
+            height: 100%;
+
+            background: linear-gradient(
+                90deg,
+                var(--purple),
+                var(--purple-light)
+            );
+        }
+
+        
+
+        .content{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* cartão*/
+
+        .card{
+            background: var(--card);
+
+            padding: 25px;
+
+            border-radius: 20px;
+        }
+
+        /* títulos personalizados*/
+
+        .card h2{
+            margin-bottom: 20px;
+            font-family: "Orbitron", sans-serif;
+        }
+
+        /* secao de missoes */
+
+        .missions{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+            gap: 15px;
+        }
+
+        .mission{
+            background: var(--card2);
+            padding: 20px;
+            border-radius: 15px;
+
+            transition: 0.3s;
+        }
+
+        .mission:hover{
+            transform: translateY(-5px);
+        }
+
+        .mission-title{
+            font-weight: bold;
+        }
+
+        .reward{
+            margin-top: 10px;
+
+            color: var(--success);
+        }
+
+        /* secao de habilidades */
+
+        .skills{
+            display: grid;
+
+            grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+
+            gap: 15px;
+        }
+
+        .skill{
+            background: var(--card2);
+
+            border-radius: 15px;
+
+            padding: 20px;
+        }
+
+        .skill-top{
+            display: flex;
+            justify-content: space-between;
+
+            margin-bottom: 10px;
+        }
+
+        .skill-bar{
+            height: 10px;
+
+            background: #222;
+
+            border-radius: 50px;
+
+            overflow: hidden;
+        }
+
+        .skill-fill{
+            height: 100%;
+            background: var(--purple);
+        }
+
+      
+
+        .streak{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            background: linear-gradient(
+                135deg,
+                rgba(139,92,246,0.2),
+                rgba(76,29,149,0.2)
+            );
+
+            border: 1px solid rgba(139,92,246,0.3);
+
+            padding: 20px;
+
+            border-radius: 20px;
+        }
+
+        .fire{
+            font-size: 2rem;
+        }
 
 
-}
-
-main {
-    margin: 30px auto;
-    width: min(95%, 1200px);
-    max-width: 1200px;
-    background-color: #472e6b70;
-    border-radius: 10px;
-    padding: 30px;
-}
 
 
 
-
-
-img {
-    width: 200px;
-    height: 200px;
-    margin: 10px;
-}
-
-.scrool{
-    background-color: #b288de50;
-    border-radius: 10px;
-    padding: 20px;
-    overflow: hidden;
-    align-items: center;
-}
-
-
-.flex{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    margin: 10px;
-}
-
-.center {
-    text-align: center;
-}
-
-
-.flex section{
-    min-height: 100px;
-    background-color: var(--destaque);
-
-    border-radius: 20px;
-    padding: 20px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
